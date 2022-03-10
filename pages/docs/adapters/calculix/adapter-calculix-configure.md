@@ -126,6 +126,10 @@ The input file for this example would be *flap.inp*. Note that the suffix ".inp"
 
 The preCICE CalculiX adapter supports solid and shell elements. It can been used with both linear and quadratic tetrahedral (C3D4 and C3D10) and hexahedral (C3D8 and [C3D20](http://web.mit.edu/calculix_v2.7/CalculiX/ccx_2.7/doc/ccx/node29.html)) elements. For shell elements, currently S3 and S6 tetrahedral elements are supported. There is a restriction when using nearest-projection mapping that you have to use tetrahedral elements. If a quasi 2D-3D case is set up (single element in out-of-place direction) then only linear elements are supported.
 
+### 2D coupling
+
+If 2D coupling is set in the preCICE configuration file, the adapter will handle the 2D-3D mapping assuming the out-of-plane direction is the z-axis: for all nodes on the same 2D position (i.e. same x and y positions up to a tolerance), there will be a unique corresponding 2D node. Mapping will assume that data is independent of Z. For instance, writing temperature from CalculiX to preCICE will take the average, and reading a force from preCICE will "spread" it among all the 3D nodes on that position, to conserve the total force.
+
 ### Nearest-projection mapping
 
 In order to use nearest-projection mapping, a few additional changes are required. The first is that the interface surface file (.sur) must be added to the Calculix input file. An example of the addition to the input file is given below
