@@ -21,6 +21,7 @@ The python bindings for preCICE are [published on PyPI](https://pypi.org/project
 * You can also install pyprecice using `conda install -c conda-forge pyprecice`. The package is maintained at [conda-forge/pyprecice](https://anaconda.org/conda-forge/pyprecice).
 * If you are using Arch Linux, there is a package on [AUR](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=python-pyprecice) you might want to use.
 * For Spack, see [our documentation page on Spack installation](https://precice.org/installation-spack.html#installing-the-python-bindings).
+* For LMOD/module: do a clean user install with pip install --user --ignore-cache-dirs --ignore-installed pyprecice, including all dependencies and Cython, then copy the pyprecice package and its dependencies numpy, mpi4py and Cyhon to the precice module on the system and added the location to PYTHONPATH in the modulefile. Now when the user loads the module, the python bindings are also part of the module.
 
 ## Usage
 
